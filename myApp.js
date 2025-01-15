@@ -21,13 +21,13 @@ const createAndSavePerson = (done) => {
   });
 };
 
-const createManyPeople = (any, done) => {
-  const arrayOfPeople = [
-    {name: "Frankie", age: 74, favoriteFoods: ["Del Taco"]},
-    {name: "Sol", age: 76, favoriteFoods: ["roast chicken"]},
-    {name: "Robert", age: 78, favoriteFoods: ["wine"]}
-  ];
-  Person.create(arrayOfPeople, (err, people) => {
+const arrayOfPeople = [
+  {name: "Frankie", age: 74, favoriteFoods: ["Del Taco"]},
+  {name: "Sol", age: 76, favoriteFoods: ["roast chicken"]},
+  {name: "Robert", age: 78, favoriteFoods: ["wine"]}
+];
+const createManyPeople = (arrayOfPeople, done) => {
+  Person.create(arrayOfPeople, function (err, people) {
     if (err) return console.log(err);
     done(null, people);
   });
